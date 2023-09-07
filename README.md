@@ -18,6 +18,8 @@
   
   #### 
   http://127.0.0.1:8000/ **api** / **category** / **{id}**
+  
+---
 
 ### Edit Specific Category *(Type : Get)*
   http://127.0.0.1:8000/ **api** /**category**/**{id}**/**edit**
