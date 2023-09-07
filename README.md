@@ -6,7 +6,7 @@
   http://127.0.0.1:8000/ **api** / **category** /
   ---
   
- ### Add New Category *(Type : post)*
+ ### Add New Category *(Type : Post)*
   http://127.0.0.1:8000/ **api** / **category** /
   
   #### Request parameters 
