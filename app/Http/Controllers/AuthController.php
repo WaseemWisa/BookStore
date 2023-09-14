@@ -20,6 +20,10 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+    /** 
+     * @urlParam email string required   Example: johnwick@gmail.com.
+     * @urlParam password string required  Example: john123456.
+    **/
     public function login(Request $request){
     	$validator = Validator::make($request->all(), [
             'email' => 'required|email',

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryeController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,7 +29,7 @@ Route::controller(CategoryeController::class)->group(function () {
     Route::post('category/{id}', 'destroy'); // Delete Specific Category
 });
 
-
+// User Api
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'

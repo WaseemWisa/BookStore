@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\Validator;
-
 use F9Web\ApiResponseHelpers;
+
+
+    /**
+     * @param string $item The todo item being updated.
+     */
+
 
 class CategoryeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     use ApiResponseHelpers;
+
     public function index()
     {
         $categories = Category::all();
@@ -29,6 +33,7 @@ class CategoryeController extends Controller
     {
         //
     }
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [

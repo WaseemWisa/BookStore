@@ -1,0 +1,331 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/category:
+    get:
+      summary: ''
+      operationId: getApiCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                example:
+                  -
+                    -
+                      id: 2b3ec913-3d12-4ebc-9d13-7208a707cd8d
+                      name: Stories
+                      quantity: 170
+                    -
+                      id: 49c5759f-ca28-4dcd-b3ee-f043aa7f206d
+                      name: Relations
+                      quantity: 740
+                    -
+                      id: 4e05bda7-ce1e-42b5-8117-c4e32c65bf56
+                      name: Health
+                      quantity: 103
+                    -
+                      id: 630105a0-2f87-4d3d-b5cb-251229042b47
+                      name: literature
+                      quantity: 300
+                    -
+                      id: 841f1962-81a3-4488-8571-398daec916c7
+                      name: Sport
+                      quantity: 400
+                    -
+                      id: 8a5bb6da-2330-4aed-ba28-bb482b6118d8
+                      name: Romantic
+                      quantity: 210
+                    -
+                      id: 96aae892-4634-4ed1-8b32-6993c6302cda
+                      name: Novels
+                      quantity: 90
+                    -
+                      id: 99120c52-2dbc-47fe-8aec-d52803ecf1b4
+                      name: Comics
+                      quantity: 1400
+                    -
+                      id: 9bf50a8a-2d11-4338-b249-cfabc2f2a984
+                      name: Philosophy
+                      quantity: 350
+                  - OK
+                  - 200
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: stcrllaoilwz
+                quantity:
+                  type: integer
+                  description: ''
+                  example: 17
+              required:
+                - name
+      security: []
+  '/api/category/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 2b3ec913-3d12-4ebc-9d13-7208a707cd8d
+                  name: Stories
+                  quantity: 170
+                properties:
+                  id:
+                    type: string
+                    example: 2b3ec913-3d12-4ebc-9d13-7208a707cd8d
+                  name:
+                    type: string
+                    example: Stories
+                  quantity:
+                    type: integer
+                    example: 170
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: 2b3ec913-3d12-4ebc-9d13-7208a707cd8d
+        required: true
+        schema:
+          type: string
+  '/api/category/{id}/edit':
+    get:
+      summary: 'Show the form for editing the specified resource.'
+      operationId: showTheFormForEditingTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: 'Category Edited'
+                properties:
+                  success:
+                    type: string
+                    example: 'Category Edited'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: gjhadmndxvms
+              required:
+                - name
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: 2b3ec913-3d12-4ebc-9d13-7208a707cd8d
+        required: true
+        schema:
+          type: string
+  /api/auth/login:
+    post:
+      summary: ''
+      operationId: postApiAuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: gene.ryan@example.org
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: 's~URHG9]ju+)E'
+              required:
+                - email
+                - password
+      security: []
+    parameters:
+      -
+        in: path
+        name: email
+        description: ''
+        example: johnwick@gmail.com.
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: password
+        description: ''
+        example: john123456.
+        required: true
+        schema:
+          type: string
+  /api/auth/register:
+    post:
+      summary: 'Register a User.'
+      operationId: registerAUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must be between 2 and 100 characters.'
+                  example: imd
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 100 characters.'
+                  example: armstrong.yazmin@example.com
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: CRxF<yE-BdEz/03
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/auth/logout:
+    post:
+      summary: 'Log the user out (Invalidate the token).'
+      operationId: logTheUserOutInvalidateTheToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/auth/refresh:
+    post:
+      summary: 'Refresh a token.'
+      operationId: refreshAToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/auth/user-profile:
+    get:
+      summary: 'Get the authenticated User.'
+      operationId: getTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
